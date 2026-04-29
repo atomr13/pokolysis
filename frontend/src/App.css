@@ -1,0 +1,129 @@
+/* ── App shell ─────────────────────────────────────────────── */
+.app-root {
+  display: grid;
+  grid-template-rows: 56px 1fr;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+/* Top bar */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 22px;
+  border-bottom: 1px solid var(--hairline);
+  background: linear-gradient(180deg, #0F1015 0%, var(--bg) 100%);
+  position: relative;
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.brand { display: flex; align-items: center; gap: 12px; }
+
+.brand-mark {
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, oklch(0.82 0.17 55), oklch(0.72 0.16 35));
+  box-shadow: 0 0 0 1px var(--border-2), 0 4px 14px var(--accent-glow);
+  display: grid; place-items: center;
+  font-size: 16px;
+}
+
+.brand-word {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+.brand-word .dot { color: var(--accent); }
+
+.brand-sub {
+  font-size: 11px;
+  color: var(--muted);
+  border-left: 1px solid var(--border);
+  padding-left: 12px;
+  margin-left: 2px;
+  letter-spacing: 0.01em;
+}
+
+.topbar-tools { display: flex; align-items: center; gap: 8px; }
+
+.tool-btn {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  display: grid; place-items: center;
+  color: var(--muted);
+  transition: color .15s, background .15s;
+  font-size: 15px;
+}
+.tool-btn:hover { color: var(--text); background: var(--surface-2); }
+
+.tool-divider { width: 1px; height: 18px; background: var(--border); margin: 0 4px; }
+
+/* User pill */
+.user-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 10px 4px 4px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  margin-left: 4px;
+}
+.user-pill-avatar {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, oklch(0.78 0.16 55), oklch(0.66 0.16 35));
+  color: var(--accent-ink);
+  font-size: 11px; font-weight: 700;
+  display: grid; place-items: center;
+}
+.user-pill-name { font-size: 12px; font-weight: 500; color: var(--text); }
+
+/* Main split */
+.app-layout {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* Shared card + chip */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 22px;
+  padding: 0 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  white-space: nowrap;
+}
+.chip--live   { color: var(--live); background: var(--live-soft); border-color: rgba(255,87,87,0.25); }
+.chip--win    { color: var(--win);  background: var(--win-soft);  border-color: rgba(93,217,163,0.25); }
+.chip--accent { color: var(--accent); background: var(--accent-soft); border-color: var(--accent-line); }
+
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 0 14px 0;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+.section-head .dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}

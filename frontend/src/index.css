@@ -1,0 +1,122 @@
+/* ── Pokolysis · Design Tokens ──────────────────────────────── */
+:root {
+  /* Surfaces */
+  --bg:        #0B0B0E;
+  --surface:   #13141A;
+  --surface-2: #1B1D26;
+  --surface-3: #232532;
+  --hairline:  #191A22;
+  --border:    #23252F;
+  --border-2:  #2C2E3B;
+
+  /* Text */
+  --text:   #EDEEF3;
+  --text-2: #B6B8C5;
+  --muted:  #7A7C8C;
+  --faint:  #4A4C5A;
+
+  /* Accent — diffused neon orange */
+  --accent:      oklch(0.78 0.16 55);
+  --accent-soft: oklch(0.78 0.16 55 / 0.14);
+  --accent-line: oklch(0.78 0.16 55 / 0.35);
+  --accent-glow: oklch(0.78 0.16 55 / 0.25);
+  --accent-ink:  #1A0F06;
+
+  /* Status */
+  --live:      #FF5757;
+  --live-soft: rgba(255, 87, 87, 0.14);
+  --win:       #5DD9A3;
+  --win-soft:  rgba(93, 217, 163, 0.14);
+  --warn:      #F5C76A;
+
+  /* Data viz pair */
+  --home:      oklch(0.78 0.16 55);
+  --away:      oklch(0.74 0.13 245);
+  --home-soft: oklch(0.78 0.16 55 / 0.18);
+  --away-soft: oklch(0.74 0.13 245 / 0.18);
+
+  /* Type */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* Radii */
+  --r-xs: 4px;
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 14px;
+  --r-xl: 18px;
+
+  /* Motion */
+  --ease:     cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Density (overridable) */
+  --pad-section-y: 20px;
+  --pad-section-x: 22px;
+  --row-y: 12px;
+
+  /* Compat shims for custom components */
+  --surface2:     var(--surface-2);
+  --card:         var(--surface);
+  --card-hover:   var(--surface-2);
+  --green:        var(--win);
+  --yellow:       var(--warn);
+  --border-subtle: var(--hairline);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  line-height: 1.45;
+  font-feature-settings: "cv11","ss01","ss03";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.005em;
+}
+
+button, input, textarea, select {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  outline: none;
+}
+button { cursor: pointer; }
+
+::selection { background: var(--accent-soft); color: var(--text); }
+
+.num  { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; }
+.mono { font-family: var(--font-mono); font-feature-settings: "tnum","ss01"; }
+
+::-webkit-scrollbar       { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border-2); }
+
+:focus-visible {
+  outline: 2px solid var(--accent-line);
+  outline-offset: 2px;
+  border-radius: var(--r-sm);
+}
+
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.55; transform: scale(0.85); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
