@@ -88,8 +88,6 @@ pokolysis/
 │           ├── AnalysisPane.jsx
 │           ├── TopBar.jsx
 │           └── UserMenu.jsx
-├── ML_MODEL.md          # How the probability model works
-├── ML_IMPROVEMENTS.md  # Roadmap for self-improving model
 ├── start.sh
 └── README.md
 ```
